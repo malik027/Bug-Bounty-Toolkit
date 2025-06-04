@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bugbountytoolkit.netlify.app/sitemap.xml
