@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Seo from './components/Seo';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import CommandsSection from './components/CommandsSection';
@@ -10,21 +11,17 @@ import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
-    // Update document title
-    document.title = 'Bug Bounty Toolkit';
-    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
-        const targetId = this.getAttribute('href')?.substring(1);
+        const target = e.currentTarget as HTMLAnchorElement;
+        const targetId = target.getAttribute('href')?.substring(1);
         if (!targetId) return;
-        
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
           window.scrollTo({
-            top: targetElement.offsetTop - 80, // Offset for fixed header
+            top: targetElement.offsetTop - 80,
             behavior: 'smooth'
           });
         }
@@ -33,16 +30,19 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <Header />
-      <Hero />
-      <CommandsSection />
-      <MethodologySection />
-      <AboutSection />
-      <ContributorsSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <>
+      <Seo />
+      <div className="min-h-screen bg-gray-900 text-white">
+        <Header />
+        <Hero />
+        <CommandsSection />
+        <MethodologySection />
+        <AboutSection />
+        <ContributorsSection />
+        <ContactSection />
+        <Footer />
+      </div>
+    </>
   );
 }
 
