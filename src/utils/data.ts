@@ -59,7 +59,7 @@ export const commandCategories: CommandCategory[] = [
       },
       {
         name: 'Git Repository Detection',
-        command: ['cat {target}s.txt | grep "SUCCESS" | gf urls | httpx-toolkit -sc -server -cl -path "/.git/" -mc 200 -location -ms "Index of" -probe'],
+        command: ['cat subdomains.txt | grep "SUCCESS" | gf urls | httpx-toolkit -sc -server -cl -path "/.git/" -mc 200 -location -ms "Index of" -probe'],
         description: 'Detects Git repositories on the web server.'
       },
       {
